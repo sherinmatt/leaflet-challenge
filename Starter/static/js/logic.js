@@ -81,12 +81,12 @@ d3.json(url, function(myData) {
   }).addTo(myMap);
 
 //creating legend
-  //var legend = L.control({ position: "bottomright" });
-  //legend.onAdd = function() {
-   // var div = L.DomUtil.create("div", "info legend"),
+  var legend = L.control({ position: "bottomright" });
+  legend.onAdd = function() {
+   var div = L.DomUtil.create("div", "info legend"),
    
-  //};
-  //legend.addTo(myMap);
+  };
+  legend.addTo(myMap);
    
 });
 
