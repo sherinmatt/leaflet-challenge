@@ -1,6 +1,8 @@
 // using mapbox 
-//// need to create map object
+
 // var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+
+//// need to create map object
 var myMap = L.map("map", {
     center: [
      38.09, -95.71],
@@ -17,7 +19,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: API_KEY
 }).addTo(myMap);
 
- // all earthquake from past seven days
+ //  URL : all earthquake from past seven days
   // url for earthquak, week-
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
   
@@ -80,13 +82,15 @@ d3.json(url, function(myData) {
     }
   }).addTo(myMap);
 
-//creating legend
-  var legend = L.control({ position: "bottomright" });
-  legend.onAdd = function() {
-   var div = L.DomUtil.create("div", "info legend"),
+//legend 
+  //var legend = L.control({ position: "bottomright" });
+  //legend.onAdd = function() {
+  // var div = L.DomUtil.create("div", "info legend"),
+  //
+  //label
    
-  };
-  legend.addTo(myMap);
+  //};
+  //legend.addTo(myMap);
    
 });
 
