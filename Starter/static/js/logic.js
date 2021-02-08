@@ -55,7 +55,7 @@ function chooseColor(d) {
     }
   }
   
-   //Get GeoJSON data..
+   //Getting the GeoJSON data..
 d3.json(url, function(myData) {
     //console.log(myData)
     // geoJSON 
@@ -80,7 +80,7 @@ d3.json(url, function(myData) {
     }
   }).addTo(myMap);
 
-//legend
+//creating legend
   //var legend = L.control({ position: "bottomright" });
   //legend.onAdd = function() {
    // var div = L.DomUtil.create("div", "info legend"),
