@@ -4,7 +4,7 @@
 var myMap = L.map("map", {
     center: [
      38.09, -95.71],
-    zoom: 2.5
+    zoom: 3
   });
 
  //layer street 
@@ -35,7 +35,7 @@ var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.ge
   // darker organge tint #ffa329
   // darkest orange tint #ed8700
   // red #c60f00
-
+//chooseColor
 function chooseColor(d) {
     switch (true) {
     case (d > 85):
@@ -76,7 +76,7 @@ d3.json(url, function(myData) {
       
       // pop-up w/ info
       layer.bindPopup("<h3>" + feature.properties.place +
-      "</h3><hr><p>" + new Date(feature.properties.time) + "</p>" + "<p> Magnitude - " + feature.properties.mag + "</p>");
+      "</h3><hr><p>" + new Date(feature.properties.time) + "</p>" + "<p> Magnitude: " + feature.properties.mag + "</p>");
     }
   }).addTo(myMap);
 
