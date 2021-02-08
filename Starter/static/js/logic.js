@@ -4,7 +4,7 @@
 var myMap = L.map("map", {
     center: [
      38.09, -95.71],
-    zoom: 2
+    zoom: 2.5
   });
 
  //layer street 
@@ -55,12 +55,38 @@ function chooseColor(d) {
     }
   }
   
-
-  
-  
    //Get GeoJSON data..
 d3.json(url, function(myData) {
     //console.log(myData)
+    // geoJSON 
+  L.geoJson(myData, {
+    // Style feature 
+    style: function(feature) {
+      return {
+        radius: markerSize(feature.properties.mag),
+        fillColor: chooseColor(feature.properties.mag),
+        color: "white",
+        fillOpacity: 0.6,
+        weight: 1.3
+      };
+    },
+    
+    // Calling feature
+    onEachFeature: function(feature, layer) {
+      
+      // pop-up w/ info
+      layer.bindPopup("<h3>" + feature.properties.place +
+      "</h3><hr><p>" + new Date(feature.properties.time) + "</p>" + "<p> Magnitude - " + feature.properties.mag + "</p>");
+    }
+  }).addTo(myMap);
+
+//legend
+  //var legend = L.control({ position: "bottomright" });
+  //legend.onAdd = function() {
+   // var div = L.DomUtil.create("div", "info legend"),
+   
+  //};
+  //legend.addTo(myMap);
    
 });
 
